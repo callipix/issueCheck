@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>이메일 인증</h3>
+<p>이메일 주소가 확인되었습니다.</p>
+<p>아래 버튼을 누르면 회원가입이 완료됩니다.</p>
+
+<form th:action="@{/auth/signUp/verify}" method="post">
+    <input type="hidden" name="token" th:value="${token}">
+    <button type="submit">회원가입 완료</button>
+</form>
+</body>
+</html>

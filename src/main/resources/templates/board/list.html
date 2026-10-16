@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판</title>
+</head>
+<body>
+
+    <th:block th:replace="~{layout/default :: layout(~{::section})}">
+        <section>
+            <!-- 게시판 콘텐츠 -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title fw-semibold mb-4">게시판 목록</h5>
+                    <p class="mb-0">게시판 테스트 페이지</p>
+                </div>
+            </div>
+        </section>
+    </th:block>
+
+</body>
+</html>

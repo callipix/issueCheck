@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.exam.mapper.PendingRegistrationMapper">
+
+    <insert id="insert" parameterType="com.project.exam.dto.PendingRegistration">
+        INSERT INTO pending_registrations(login_id, password_hash, nickname, email, token_hash, expires_at)
+        VALUES (#{loginId} , #{passwordHash} , #{nickname} , #{email} , #{tokenHash} ,#{expiresAt})
+    </insert>
+
+    <select id="findByTokenHash" resultType="com.project.exam.dto.PendingRegistration">
+        select id,
+               login_id as loginId,
+               password_hash as passwordHash,
+               nickname,
+               email,
+               token_hash as tokenHash,
+               expires_at as expiresAt,
+               created_at as createdAt
+        from pending_registrations
+        where token_hash = #{tokenHash}
+
+    </select>
+
+    <delete id="deletePendingRegistration">
+        delete
+        from pending_registrations
+        where token_hash = #{tokenHash}
+    </delete>
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.exam.mapper.UserMapper">
+
+    <select id="existsByLoginId" resultType="boolean">
+        SELECT EXISTS (
+                        SELECT 1
+                        FROM users
+                        WHERE login_id = #{loginId}
+        )
+    </select>
+
+    <select id="existsByNickName" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1
+            FROM users
+            WHERE nickname = #{nickname}
+        )
+    </select>
+
+    <select id="existsByEmail" resultType="boolean">
+        SELECT EXISTS (
+            SELECT 1
+            FROM users
+            WHERE email = #{email}
+        )
+    </select>
+
+    <insert id="insert" parameterType="com.project.exam.dto.Users">
+        INSERT INTO users(login_id, password, nickname, email)
+        VALUES (#{loginId} , #{password} , #{nickname} , #{email})
+    </insert>
+
+
+</mapper>

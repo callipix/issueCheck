@@ -51,3 +51,7 @@ application-secret.yml
 ### OS ###
 .DS_Store
 Thumbs.db
+
+# Xtream commercial template
+/src/main/resources/static/assets/
+/src/main/resources/static/horizontal/
